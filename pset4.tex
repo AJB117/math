@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 4: More Functions Woot}
+\end{center}
+
+\begin{enumerate}
+        \item \begin{enumerate}[a)]
+            \item Given $f$ is a bijection, we need to show $f^{-1}: B \rightarrow A$ is both an injection and surjection.
+                To show it is an injection, we want to show for $x, y \in A$, $f^{-1}(x) = f^{-1}(y) \implies x = y$.
+                Since $f$ is a bijection, then there is only one $a \in A$ and one
+                corresponding $b \in B$ such that $f(a) = b$. It follows that for $x = y \in A$,
+                $f(x) = f(y)$. It follows that $f^{-1}(f(x)) = f^{-1}(f(y))$ and so $x = y$. 
+            \item We want to show that $f^{-1} \circ g^{-1}$ is the inverse of $g \circ f$. We can demonstrate this:
+            
+                $$(f^{-1} \circ g^{-1}\circ(g \circ f))(x)$$
+                $$= (f^{-1} \circ (g^{-1} \circ g) \circ f)(x)$$
+                $$= (f^{-1} \circ I_B \circ f)(x)$$
+                $$= ((f^{-1} \circ I_B) \circ f))(x)$$
+                $$= (f^{-1} \circ f)(x)$$
+                $$= (I_A)(x)$$
+                $$= x$$
+
+                It's clear how the same strategy would work for composing the two functions in different order.
+                Hence we have shown that $f^{-1} \circ g^{-1}$ is an inverse of $g \circ f$, and since
+                a function with an inverse has a unique inverse, then it is the only inverse.
+        \end{enumerate}
+
+        \item \begin{enumerate}[a)]
+                \item If $A$ and $B$ are the same size, $f$ remains an injection. If $B$ has more elements than $A$,
+                        then $f$ remains an injection. If $B$ has fewer elements than $A$, then there is some 
+                        $a \in A$ such that $f(a)$ is undefined. WLOG, let $A$ be $[n+1]$ and $B$ be $[n]$.
+                        There is no element in $B$ that $n+1$ in $A$ maps to, so $f$ is no longer injective.
+                        From these cases, $|A| \leq |B|$.
+                \item If $A$ and $B$ are the same size, $f$ remains a surjection.
+                        If $A$ has more elements than $B$, then $f$ remains a surjection since
+                        not all elements in $A$ need to be mapped to an element in $B$. However, if $A$ has fewer elements
+                        than $B$, then $f$ cannot be a surjection. WLOG, use the sets $A = [n]$, $B = [n+1]$.
+                        What $a \in A$ maps to $n+1 \in B$? If there is none, $f$ is not surjective.
+                        If there is, then, WLOG, we have $n \in A$ mapping to both $n$ and $n+1$, and so $f$ is not 
+                        surjective. So, $f$ can't be surjective if $|A| < |B|$, and therefore $|A| \geq |B|$.
+                \item From part a), since $f$ is an injection, $|A| \leq |B|$. Similarly, since $g$ is an injection,
+                        then also $|B| \leq |A|$. So, $|A| = |B|$. We know $f$ is an injection, so to show it is a bijection,
+                        we need to show it is also a surjection. Assume it is not a surjection. Then, from b), 
+                        $|A| < |B|$. But we know $|A| = |B|$, which is a contradiction.
+                        So $f$ is a surjection. The same argument can be applied to $g$. 
+        \end{enumerate}
+
+        \item \begin{enumerate}[a)]
+                \item We can define $f$ for sets $A = \{a_1, a_2, \cdots, a_m\}$ and $B = \{b_1, b_2, \cdots, b_n\}$
+                        
+        \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

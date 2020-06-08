@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 2: More Induction and Functions}
+\end{center}
+
+\begin{enumerate}
+        \item We start with the two base cases $n = 1$ and $n = 2$. For both cases, $a_n$ is odd by definition.
+        
+                Our inductive hypothesis is that $a_n$ and $a_{n-1}$ are odd. We want to show that $a_{n+1}$ is consequently also odd.
+                To do this, we note that $a_{n+1} = 2a_n + 3_{n-1}$ is the sum of an even number (any $2n \in \mathbb{N}$
+                is even by definition) and an odd number (by the inductive hypothesis). An even number plus an odd number is always odd,
+                so $a_{n+1}$ must be odd.
+        
+        \item   One way to accomplish this is without induction. A power set is constructed by taking all possible subsets of a set.
+                In other words, for every element in the set, the set of every combination of sets given a cut size is a part of the
+                power set. We can write this as $$\sum_{k=1}^n {n \choose k}$$
+
+                Where $n$ is the number of elements in the set, and $k$ is the number of elements we can choose per iteration of the
+                combination. We sum from $1$ to $n$ since we add every combination of singleton, couplet, triplet, etc. of elements into the
+                power set. To compute this, we can use the binomial theorem evaluated at 1:
+
+                $$\sum_{k=1}^n {n \choose k}x^k = (1+x)^n$$
+                $$\sum_{k=1}^n {n \choose k}1^k = (1+1)^n$$
+                $$\sum_{k=1}^n {n \choose k} = 2^n$$
+
+                Alternatively, we can use induction. Our base case is for $n = 0$. An set with 0 elements is simply $\emptyset$, which indeed has $2^0 = 1$ subset, itself.
+        
+                Our inductive hypothesis is that for any set $A$ with $n$ elements, $|\mathcal{P(A)}| = 2^n$. We want to show that for a set $A^*$ with
+                $n+1$ elements, $|\mathcal{P(A^*)}| = 2^{n+1}$. 
+
+                Say $A^* = A \cup \ell$. We can divide $\mathcal{P(A^*)}$ into sets $X$ and $Y$ where $X$ is the set of all subsets that do not contain
+                $\ell$ and $Y$ is the set of all subsets that do. Since no subset of $X$ contains $\ell$, then $X$ contains all subsets of $A$, and so $|X| = 2^n$
+                by the inductive hypothesis. Now, notice that for any subset $E \subset Y$, $E \setminus \ell$ is also in $X$. Further, for any subset $F \subset X$,
+                $F \cup \ell$ is in $Y$. This means $|X| = |Y| = 2^n$. Since $\mathcal{P(A^* )} = X \cup Y$, then $\mathcal{P(A^*)} = |X| + |Y| = 2(2^n) = 2^{n+1}$ as desired.
+
+        \item  Let $F: A \rightarrow B$ be defined by $F(S) = $
+                \[ \begin{cases}
+                    S \setminus \{n\} & \text{if $n \in S$} \\
+                    S \cup \{n\}      & \text{if $n \notin S$}
+                \end{cases}
+                \]
+
+                To show this is a bijection, we need to show it is both an injection and surjection.
+
+                To show this is an injection, take sets $M$ and $N \in A$ which both contain $n$ and so
+                $F(M) = F(N) = P$. If $n \in P$, then $M = P \setminus n$ and $N = P \setminus n$, so
+                $M = N$. Similarly, if $n \notin P$, then $M = P \cup n$ and $N = P \cup n$, so $M = N$.
+
+                To show this a surjection, take a set $U \subseteq B$. Since $U$ is in $B$, then $U$ must be have an odd number of elements.
+                If $n \in U$, we can remove $n$ and get an even number of elements, which is the $K \subset A$
+                which can map to $U$. If $n \notin U$, we can add it and get an even number of elements again,
+                which again is the $K \subset A$ which can map to $U$.
+        
+\end{enumerate}
+
+\end{document}

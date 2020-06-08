@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 1: Induction}
+\end{center}
+
+\begin{enumerate}
+        \item We start with the base case $n=1$.
+        $$P_1: \sum_{i=1}^1 (2-1) = 1^2 = 1$$
+        This is true. Moving on to the inductive step, we assume
+        $$P_k: \sum_{i=1}^k (2i-1) = k^2$$
+        For all $k \in \mathbb{N}$. Proving $P_{k+1}: \sum_{i=1}^{k+1}(2i-1) = (k+1)^2$, it follows that
+        $$\sum_{i=1}^{k+1}(2i-1) = \sum_{i=1}^k (2i-1) + 2(k+1)-1$$
+        $$= k^2 + 2k+1$$
+        $$= (k+1)^2$$
+
+        \item Our base case is the smallest $n$ for which we can tile the board with the L-shape.
+                This is for $n=1$ since we need at least 3 tiles for the L-shape. Clearly, this works
+                since a $2\times2$ grid with a square missing is exactly the L-shape.
+
+                For the inductive hypothesis, assume that this is the case for all natural $n \geq 1$ on a
+                $2^n \times 2^n$ board.
+                We need to show that this is also the case for $n+1$ on a $2^{n+1}\times 2^{n+1}$ board. We can
+                divide the board into four $2^n \times 2^n$ sub-boards where each removed tile is adjacent to the next.
+                By the induction hypothesis, we can tile all of these sub-boards and therefore tile the entire
+                $2^{n+1}\times 2^{n+1}$ board.
+
+        \item Our base case is for $n = 0, n = 1$. We get 
+                $$a_0 = 3^0 = 1, a_1 = 3^1 = 3$$
+                We assume for the inductive hypothesis that  $$a_k = 3^k$$
+                for all $k \geq 2 \in \mathbb{N}$. We want to show that $a_{k+1} = 2a_k + 3a_{k-1}$.
+                To do this, substitute $3^k$ for $a_k$ due to the inductive hypothesis, and accordingly
+                $3^{k-1}$ for $a_{k-1}$.
+                $$a_{k+1} = 2(3^k) + 3a_{k-1}$$
+                $$= 2(3^k) + 3(3^{k-1})$$
+                $$= 2(3^k) + 3^k$$
+                $$= 3(3^k) = 3^{k+1}$$
+        
+        \item Our base is case is for the smallest number of blocks. For 1 block, we have $1(1-1)/2 = 0$ points, and 
+                are told we get 0 points for stacks of size 1, so this holds.
+
+                Our strong inductive hypothesis is that for any $k \in \mathbb{N}$, $1 \leq k \leq n$, $k$ blocks will yield
+                $\frac{k(k-1)}{2}$ points. We need to show that $n+1$ blocks yields $\frac{n(n+1)}{2}$ points.
+
+                To do this, we go through three iterations of the game. In the first, for $n+1$ blocks, we have stacks of size $a$ and $n+1-a$ making $a(n+1-a)$ points. In the second, we apply the inductive
+                hypothesis and use $a$ blocks for $k$ (since $a \leq n-1$ and therefore also $a \leq k$) to make
+                $\frac{a(a-1)}{2}$ points. In the third, we can do this again, except using $n-a$ for $k$
+                (since $a$ can be at most $n-1$, in which case $n+1-a$ becomes $1$) to make $\frac{(n-a)(n+1-a)}{2}$
+                points. Adding these up for some point total $P$,
+                $$P = a(n+1-a) + \frac{a(a-1)}{2} + \frac{(n-a)(n+1-a)}{2}$$
+                $$2P = 2an + 2a - 2a^2 + a^2 - a + n^2 + n - an - an - a + a^2$$
+                $$= n^2+n$$
+                So, 
+                $$P = \frac{n(n+1)}{2}$$
+        
+        \item a) $$\sum_{n=1}^k 4n+1 = 4\sum_{n=1}^k + \sum_{n=1}^k 1$$
+                $$= 2k(k+1) + k+1$$
+
+                b) $$\sum_{n=1}^k(4n-3)-(4n-1) = \sum_{n=1}^k 4n - 4n - 2 $$
+                $$= \sum_{n=1}^k -2 = -2k$$
+
+\end{enumerate}
+
+
+
+\end{document}

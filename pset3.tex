@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 3: Functions}
+\end{center}
+
+\begin{enumerate}
+        \item \begin{enumerate}[a)]
+            \item \textbf{For every $x \in X$, there exists $y$ such that $f(x) = y$}
+            
+                $A = [n]$ and $B_n$ is the set of binary strings of length $n$. Take a subset $S$ of 
+                $A$ of size $n$. By definition of $B_n$, there is a binary string 
+                $b_0, b_1, \cdots, b_n$ in $B_n$.
+
+                \textbf{For every $x \in X$, $f(x) \in Y$}
+                
+                See above.
+                
+                \textbf{For every $x \in X$, there is only one $y \in Y$ such that $f(x) = y$}
+
+                Take $S \subset A$ of size $n$. Then there is a binary string $T \subset B_n$
+                whose digits correspond to $b_1b_2\ldots b_n$ where $b_i = 1$ if $i \in S$, and
+                $b_i = 0$ if $i \notin S$. WLOG, if there were a binary string $U = T$ and therefore
+                $U$ would not be unique, then its binary string representation would be $c_1c_2 \dots c_k$
+                where $c_k = 1$ if $k \in S$, and $c_k = 0$ if $k \notin S$. $U$ cannot be different from
+                $T$ since this would mean $c_k = 0$ even though $i \in S$ or $c_k = 1$ even though $i \notin S$
+                for some $k$.
+                Thus $U \neq T$.
+            
+            \item See above (third point).
+            \item $B_n$ contains all binary strings of length $n$. To make a corresponding $S \subset A$,
+                    take all $i$ for which $b_i = 1$ and put it in S. Since $i$ is maximally $n$ and minimally
+                    $0$, any set made this way must have between $0$ and $n$ elements, and so it must be in $A$.
+        \end{enumerate}
+    
+        \item \begin{enumerate}[a)]
+            \item We want to show that, for injections $F$ and $G$, $F \circ G$ is also an injection.
+                    That is, $F(G(a)) = F(G(b)) \implies a = b$. Since $F$ is an injection, then 
+                    $G(a) = G(b)$. Similarly, since $G$ is an injection, then $a = b$. It follows
+                    $F \circ G$ is also an injection.
+            
+            \item We want to show the above but for surjections $F, G, F\circ G$.
+                    That is, for every $y$ in $F \circ G$, there is a corresponding $x$ such that $F(G(x)) = y$.
+                    Since $F$ is a surjection, there is an $g$ such that $F(g) = y$. Further,
+                    Since $G$ is a surjection, there is an $x$ such that $G(x) = g$. 
+                    With this $x$, it follows that $F \circ G$ is a surjection.
+                    To verify, $G(x) = g, F(g) = y$, so $F(G(x)) = F(g) = y$.  
+        \end{enumerate}
+
+        \item \begin{enumerate}[a)]
+            \item Since $h$ is injective, then for $x, y \in A$ such that $h(x) = h(y)$, 
+            $x = y$. Since $x = y$, then $g(f(x)) = g(f(y))$ since both $f$ and $g$ are well-defined.
+            Hence $f(x) = f(y)$ and is an injection.
+
+            \item False. If there are two elements in $B$ that $g$ maps to $A$, there could be only one 
+                    element of $A$ that maps to $g$. Hence $g$ need not be injective, but $h$ would still
+                    be injective.
+            
+            \item This is also false. There could be elements in $g$ that $F$ does not map to.
+            \item Since $h$ is surjective, then for any $x \in A$, there is a corresponding $y \in A$ such that $h(x) = y$.
+                    In other words, $g(f(x)) = y$. Suppose $g$ is not surjective for $y$.
+                    So, $f(x) \in B$ does not exist, and so $g(f(x))$ does not exist, and so 
+                    $h$ does not map $g(f(x))$ to $y$ and is not surjective.
+                    By contraposition, $g$ must be surjective.
+
+                    More simply, we want to find $y \in B$ such that $g(y) = x, x \in A$. 
+                    Since $h$ is surjective, then for some $z \in A$, $g(f(z)) = x$. By definition,
+                    $g$ maps $f(z)$ to $x$. We have found our $y \in B$, $f(z)$, so $g$ must be surjective.
+
+
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
