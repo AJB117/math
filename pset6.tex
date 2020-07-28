@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 6: Sets}
+\end{center}
+
+\begin{enumerate}
+        \item \begin{enumerate}[a)]
+            \item $\mathbf{A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)}$
+
+                Say $x \in A \cup (B \cap C)$. Then either $x \in A$ or $x \in B \cap C$.
+                If $x \in A$, then $x \in A \cup B$ and $x \in A \cup C$. By definition
+                of intersections, $x \in (A \cup B) \cap (A \cup C)$. If $x \in B \cap C$,
+                then $x \in B$ and $x \in C$. It follows that $x \in A \cup B$ and
+                $x \in A \cup C$, respectively, so $x \in (A \cup B) \cap (A \cup C)$.
+
+                  $\mathbf{(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)}$
+
+                Say $x \in (A \cup B) \cap (A \cup C)$. So $x \in A \cup B$ and $x \in A \cup C$.
+                If $x \in A \cup B$, either $x \in A$ or $x \in B$. If $x \in A$, $x \in A \cup (B \cap C)$.
+                Take the case $x \in B$. Since $x \in A \cup C$, then, if $x \in C$ 
+                (the case where $x \in A$ is already covered), then $x \in B$ and $x \in C$, so $x \in B \cap C$.
+                It follows $x \in A \cup (B \cap C)$.
+
+            \item $\mathbf{A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)}$
+
+                Let $x \in A \cap (B \cup C)$. So $x \in A$ and $x \in B \cup C$. 
+                Since $x \in B \cup C$, either $x \in B$ or $x \in C$. If $x \in B$,
+                then $x \in A$ and $x \in B$ and so $x \in A \cup B$, and accordingly
+                $x \in (A \cap B) \cup (A \cap C)$. Similarly, if $x \in C$, then
+                $x \in A$ and $x \in C$ and so $x \in A \cup C$, and accordingly 
+                $x \in (A \cap B) \cup (A \cap C)$. 
+
+                $\mathbf{(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)}$
+
+                Let $x \in (A \cap B) \cup (A \cap C)$. Either $x \in A \cap B$
+                or $x \in A \cap C)$. If $x \in A \cap B$, then $x \in A$ and $x \in B$.
+                Since $x \in B$, then $x \in B \cup C$. It follows $x \in A$ and $x \in B \cup C$,
+                so $x \in A \cap (B \cup C)$. If $x \in A \cap C$, then $x \in A$ and $x \in C$.
+                Since $x \in C$, then $x \in B \cup C$. Similar to above, then $x \in  A \cap (B \cup C)$
+                as desired.
+            
+            \item $\mathbf{(A \cup B)^c \subseteq A^c \cap B^c}$
+
+                Let $x \in (A \cup B)^c$. Then $x \notin A$ and $x \notin B$. This is exactly what we want;
+                it follows directly that $x \in A^c \cup B^c$.
+
+                $\mathbf{A^c \cap B^c \subseteq (A \cup B)^c}$
+
+                Let $x \in A^c \cup B^c$. Either $x \in A^c$ or $x \in B^c$. If $x \in A^c$, $x \notin A$. 
+                If $x \in B^c$, $x \notin B$. So, $x \notin A$ and $x \notin B$. From above, it follows that
+                $x \in (A \cup B)^c$.
+        \end{enumerate}
+
+        \item $\mathbf{(A \cup B) \setminus C \subseteq [A \setminus (B \cup C)] \cup [B \setminus (A \cap C)]}$
+
+              Let $x \in (A \cup B) \setminus C$. This means $x \in A$ or $x \in B$ and $x \notin C \equiv x \in C^c$. 
+              Consider the case when $x \in A$ and $x \in C^c$. Then $x \in A \cap C^c$, so $x \notin A \cap C$.
+              Further suppose $x \in B$. Since $x \in B$ and $x \notin A \cap C$,
+              then finally $x \in B \setminus (A \cap C)$.
+
+              The next case is when $x \notin B$. Since $x \in A \cap B^c$, $x \notin A \cap B$. Since $x \in C^c$,
+              then $x \notin C$ either. Now we have $x \in A$ but $x \notin B$ and $x \notin C$, so 
+              $A \cup B \setminus C \subseteq [A \setminus (B \cup C)]$ and the rest of the formula follows.
+
+              Now consider $x \in B$ and $x \in C^c$. Since $x \in C^c, x \notin A \cap C$. So, $x \in B \setminus (A \cap C)$
+              and the rest of the formula follows. This is true no matter whether $x \in A$ or $x \notin A$.
+
+
+              $\mathbf{[A \setminus (B \cup C)] \cup [B \setminus (A \cap C)] \nsubseteq (A \cup B) \setminus C}$
+
+              Let $x \in A \setminus (B \cup C)$. Then $x \in A$ and $x \notin B \cup C$.
+              
+              Next, let $x \in B \setminus (A \cap C)$. Then $x \in B$ and $x \notin A \cap C$. 
+
+              Now consider both the above cases. $x \in A$ and $x \in B$, but
+              $x \notin B \cup C$ and $x \notin A \cap C$. It follows $x \in A$ and $x \notin A$, but this is a
+              contradiction, so equality does not hold.  
+
+        \item 
+          \begin{enumerate}[a)]
+            \item There are 10 elements in $[10]$, so there are $2^{10}$ many subsets of $[10]$. 
+                Let $A = $ the set of all elements in $[10]$ that are not odd. $|A| = 5$,
+                so the number of subsets that do not contain an odd integer is $2^5$.
+                So the number of subsets containing an odd integer is $2^{10}-2^5$ = 992.
+            \item MISSISSIPPI has 11 letters. There are $11 - 4 + 1= 8$ ways of arranging the S's consecutively.
+                For each way, there are 7 letters to be rearranged to make a unique string (4 I's, 2P's, and 1 M).
+                $8 \cdot \frac{7!}{4!2!} = 840$ ways of repositioning the letters.
+          \end{enumerate}
+          
+          \item Assume the statement is false. That is, there is an $n$ for which for all $k$
+          $$\binom{n}{k} < \frac{2^n}{n+1}$$
+          
+          Notice that $\sum_{k=0}^n \binom{n}{k} = 2^n$. Adjusting the above statement,
+          
+          $$\sum_{k=0}^n \binom{n}{k} < \sum_{k=0}^n \frac{2^n}{n+1}$$
+          $$2^n < \sum_{k=0}^n \frac{2^n}{n+1}$$
+          $$2^n < \frac{2^n(n+1)}{n+1}$$
+          $$2^n < 2^n$$
+          
+          This is false, and so the original statement is true.
+          
+        \item 
+          \begin{enumerate}[a)]
+            \item Say you have $n$ people and want to form a committee of $k$ members with a sub-committee of $j$ members.
+
+              From the left side of the equation, there are $\binom{n}{k}$ ways to choose $k$ members out of $n$ people. 
+              For each of these ways of picking $k$ members, there is $\binom{k}{j}$ ways of picking a sub-committee
+              of $j$ people from those $k$ members that already form a committee to accomplish the above task.
+
+              From the right side of the equation, there are $\binom{n}{j}$ ways to choose a sub-committee of $j$ people
+              out of $n$ people. For each of these ways of picking a sub-committee, there are $\binom{n-j}{k-j}$
+              ways of picking a committee from the remaining people. $j$ is subtracted since they have already been chosen
+              for the sub-committee.
+            \item Say you want to find the total number of ways to choose a committee with a president
+              from a group of people whose size ranges from 1 to $n$.
+
+              From the left side of the equation, a president can be chosen out of $k$ people. For each of these presidents,
+              $\binom{n}{k}$ committees can be formed, making $k\binom{n}{k}$ many possible committees. We sum them all up
+              to find the total number of ways to form these committees of group size $k$, $1 \leq k \leq n$.
+
+              From the right side of the equation, one president must be chosen. Now the remaining number of people
+              is $n-1$, and consequently there are $2^{n-1}$ ways of configuring a committee out of them.
+              For each of these teams, a unique president can be chosen from the original $n$ people, so there are $n$ many possible
+              presidents. The total number of possible committees is therefore $n\cdot 2^{n-1}$. 
+          \end{enumerate}
+\end{enumerate}
+
+\end{document}
