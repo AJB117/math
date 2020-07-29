@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagenumbering{gobble}
+\begin{document}
+
+\subsubsection*{Practice}
+\subsubsection*{From Math 20630}
+\begin{center}
+\item \subsection*{HW 5: Some Basic Logic}
+\end{center}
+
+\begin{enumerate}
+        \item (1) describes a non-specific $q$ such that $s$ missed $q$ while (2) denotes a specific such $q$.
+                If (1) is true, then (2) is not guaranteed that (2) is also true since the $q$ it denotes
+                may not be the same $q$ for all $s$. If (2) is true, (1) is guaranteed to be true since
+                it specifies the $q$ that $s$ missed.
+        \item The set $\{16, 81\}$ is such a set. It satisfies (3) since 16 is divisible by $2^2$, and 81 is
+                divisible by $3^2$. It fails (2) since 81 is not divisible by 4, and 16 is not divisible by 9.
+        \item 
+            \begin{enumerate}
+                \item It is snowing today and Sue is not wearing a hat nor a scarf.
+                \item There is a class wherein every student misses both Problem 1 and Problem 2 on the exam.
+            \end{enumerate}
+            \item 
+                \begin{enumerate}
+                    \item It is necessarily true. One can rewrite it as $3x  + 4 > 3y, x > y$. The left-hand side
+                            will always be greater than the right even if $x = y$ since anything with something
+                            added to it will be greater than when it started.
+                    \item Contrapositive: If $3x + 5 \leq 3y + 1$, then $x \leq y$.
+                    \item Converse: If $3x + 5 > 3y+1$, then $x > y$.
+                    \item The converse is false. $x = y = 0$ disproves it. Since the contrapositive is logically equivalent
+                            to the original statement, it is also necessarily true.
+                \end{enumerate}
+            \item 
+                \begin{enumerate}
+                    \item There exists an $x$ such that for all $y$, $f(y) \leq f(x)$.
+                    \item $f(y) = e^{y+1}, f(x) = e^x$ satisfies the original statement. Use $y = x$.
+                            $f(y) = 1, f(x) = e^x$ satisfies its negation. Use $x = 0$. 
+                \end{enumerate}
+            \item Suppose the contrary: either $k$ or $l$ are odd. If $k$ is odd, $ak^2$ is also odd since
+                    the product of odd numbers is odd. $bkl$ and $cl^2$ are even since the product
+                    of an even and an odd number is even. However, this would mean two even numbers plus
+                    and odd number is even since 0 is even even though it would have to be odd. This is a contradiction.
+                
+                    If $l$ is odd, then $ak^2$ and $bkl$ is even, but $cl^2$ is odd. The same argument from above
+                    applies.
+
+                    If both $l$ and $k$ are odd, all three terms are odd, and their sum cannot be even even though
+                    0 is even. This is a contradiction. We have derived a contradiction from each case,
+                    so the original statement must be true.
+\end{enumerate}
+
+\end{document}
